@@ -19,7 +19,7 @@ app.use('/pets', petRouter)
 
 db.on('connected', () => {
     console.clear();
-    console.log(chalk.magenta("Connected to MongoDB"));
+    console.log(chalk.yellowBright("Connected to MongoDB"));
 });
 
 app.listen(PORT, () => {
