@@ -4,6 +4,7 @@ import express  from 'express';
 import db from "./db/connection.js" // let db = mongoose.connection
 import chalk from "chalk";
 import logger from "morgan";
+import petRouter from "./routes/pets.js"
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,8 +13,8 @@ const PORT = process.env.PORT || 3000;
 app.use(logger("dev"));
 app.use(express.json());
 
-// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// TBU: Routes go here
+// ^^^^^^^ Routes ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app.use('/pets', petRouter)
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 db.on('connected', () => {
