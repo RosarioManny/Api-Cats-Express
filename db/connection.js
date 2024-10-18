@@ -7,7 +7,7 @@ mongoose.set("returnOriginal", false)
 
 mongoose.connect(process.env.MONGODB_URI);
 
-mongoose.connection.on("disconnect", () => {
+mongoose.connection.on("disconnected", () => {
     console.log(chalk.strikethrough("Disconnected from MongoDB!"))
 });
 
