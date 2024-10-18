@@ -9,16 +9,18 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 //TBU: Add mor middleware (cors, express.JSON)
-app.use(logger("dev"))
+app.use(logger("dev"));
+app.use(express.json());
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// Routes go here
+// TBU: Routes go here
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 db.on('connected', () => {
     console.clear();
     console.log(chalk.magenta("Connected to MongoDB"));
 });
+
 app.listen(PORT, () => {
   console.log(`The express app is ready on port ${PORT}!`);
 });
