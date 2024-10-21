@@ -10,8 +10,6 @@ dotenv.config();
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-//TBU: Add mor middleware (cors, express.JSON)
-
 app.use(logger("dev"));
 app.use(express.json());
 app.use(cors());
@@ -23,8 +21,7 @@ app.use('/pets', petRouter)
 db.on('connected', () => {
     console.clear();
     console.log(chalk.green("Connected to MongoDB"));
-});
-
-app.listen(PORT, () => {
-  console.log(`The express app is ready on port ${PORT}!`);
+    app.listen(PORT, () => {
+      console.log(`The express app is ready on port ${PORT}!`);
+    });
 });

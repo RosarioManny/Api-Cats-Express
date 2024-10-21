@@ -66,7 +66,6 @@ export const updatePet = async (req, res) => {
 export const deletePet = async (req, res) => {
     try {
          const deletedPet = await Pet.findByIdAndDelete(req.params.petId);
-         res.status(201).json(deletedPet)
 
          if (!deletedPet) {
             res.status(404)
